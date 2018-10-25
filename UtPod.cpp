@@ -71,14 +71,19 @@ int UtPod::removeSong(Song const &s) {
       return NO_MEMORY;
    } else {
       bool found = false;
-      SongNode* prevNode;
+      SongNode* prevNode = songs;
       SongNode* currentNode = songs;
       while (currentNode != NULL && !found) {
          if (currentNode->s == s) {
             memSize = memSize - currentNode->s.getSize();
             SongNode* bufferNode = currentNode;
-            prevNode->next = currentNode->next;
-            currentNode = currentNode->next;
+            if (currentNode != prevNode) {
+               prevNode->next = currentNode->next;
+               //currentNode = currentNode->next;
+            } else {
+               //VERY FIRST INSTANCE
+               songs = currentNode->next;
+            }
             delete bufferNode;
             found = true;
          } else {
