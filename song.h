@@ -37,7 +37,13 @@ class Song {
    string getTitle() const;
    string getArtist() const;
    int getSize() const;
-   bool operator == (Song const &rhs);
+
+   void setTitle(string _title);
+   void setArtist(string _artist);
+   void setSize(int _size);
+   bool operator ==(Song const &rhs);
+   bool operator <(Song const &rhs);
+   bool operator >(Song const &rhs);
 };
 
 #endif

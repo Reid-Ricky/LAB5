@@ -40,25 +40,75 @@ Song::Song(string _title, string _artist, int _size) {
    }
 }
 
-//TEST
+//GETTERS
 string Song::getTitle() const {
    return title;
 }
 
-//TEST
 string Song::getArtist() const {
    return artist;
 }
 
-//TEST
 int Song::getSize() const {
    return size;
 }
 
+//SETTERS
+void Song::setTitle(string _title) {
+   title = _title;
+}
+
+void Song::setArtist(string _artist) {
+   artist = _artist;
+}
+
+void Song::setSize(int _size) {
+   size = _size;
+}
+
+//OPERATORS
 bool Song::operator ==(Song const &rhs) {
    return (title == rhs.title &&
            artist == rhs.artist &&
            size == rhs.size);
 }
 
+bool Song::operator <(Song const &rhs){
+   if (artist < rhs.getArtist()) {
+      return true;
+   } else if (artist == rhs.getArtist()) {
+      if (title < rhs.getTitle()) {
+         return true;
+      } else if (title == rhs.getTitle()){
+         if (size < rhs.getSize()) {
+            return true;
+         } else {
+            return false;
+         }
+      } else {
+         return false;
+      }
+   } else {
+      return false;
+   }
+}
 
+bool Song::operator >(Song const &rhs){
+   if (artist > rhs.getArtist()) {
+      return true;
+   } else if (artist == rhs.getArtist()) {
+      if (title > rhs.getTitle()) {
+         return true;
+      } else if (title == rhs.getTitle()){
+         if (size > rhs.getSize()) {
+            return true;
+         } else {
+            return false;
+         }
+      } else {
+         return false;
+      }
+   } else {
+      return false;
+   }
+}

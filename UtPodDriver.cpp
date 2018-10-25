@@ -81,7 +81,7 @@ int main(int argc, char *argv[])
     Song s6("Hey Jude6", "Beatles", 400);
     result = t.addSong(s6);
     cout << "result = " << result << endl;
-
+/*
     cout << "memory = " << t.getRemainingMemory() << endl;
 
     cout << "\n---------------------\n\n";
@@ -117,5 +117,10 @@ int main(int argc, char *argv[])
     
     t.showSongList();
     cout << "memory = " << t.getRemainingMemory() << endl;
-
+*/
+    cout << "\n---------------------\n\n";
+    t.showSongList();
+    cout << "\n---------------------\n\n";
+    t.sortSongList();
+    t.showSongList();
 }

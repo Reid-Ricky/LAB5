@@ -143,7 +143,7 @@ void UtPod::shuffle() {
 
 //TEST
 void UtPod::showSongList() {
-   if (memSize == MAX_MEMORY) {
+   if (getRemainingMemory() == memSize) {
       cout << "\n";
    } else {
       SongNode* nodePointer = songs;
@@ -156,18 +156,35 @@ void UtPod::showSongList() {
 
 //INCOMPLETE
 void UtPod::sortSongList() {
-   //sort
+   SongNode* nodePointer;
+   SongNode* nextPointer;
+   Song temp;
+   if (numSongs() >= 2) {
+      for (int i = 0; i < numSongs(); i++) {
+         nodePointer = songs;
+         nextPointer = songs->next;
+         for (int j = 0; (j < numSongs() - 1); j++) {
+            if (nodePointer->s > nextPointer->s) {
+               temp = nodePointer->s;
+               nodePointer->s = nextPointer->s;
+               nextPointer->s = temp;
+            }
+            nodePointer = nodePointer->next;
+            nextPointer = nextPointer->next;
+         }
+      }
+   }
 }
   
 //TEST
 int UtPod::getRemainingMemory() {
    SongNode *ptr = songs;
    int curr_mem_used =0;
-   while(ptr != NULL){
+   while (ptr != NULL) {
       curr_mem_used += ptr->s.getSize();
       ptr = ptr->next;
    }
-   return(memSize - curr_mem_used);
+   return (memSize - curr_mem_used);
 }
 
 //TEST
