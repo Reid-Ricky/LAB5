@@ -53,7 +53,7 @@ UtPod::UtPod(int size) {
 
 //TEST
 int UtPod::addSong(Song const &s) {
-/*
+
    if ((memSize + s.getSize()) > MAX_MEMORY) {
       return NO_MEMORY;
    } else {
@@ -64,8 +64,8 @@ int UtPod::addSong(Song const &s) {
       memSize = memSize + s.getSize();
       return SUCCESS;
    }
-*/
-return 0;
+
+
 }
 
 //TEST

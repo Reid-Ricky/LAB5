@@ -36,9 +36,9 @@ class Song {
    Song();
    Song(string _title, string _artist, int _size);
    
-   string getTitle();
-   string getArtist();
-   int getSize();
+   string getTitle()const;
+   string getArtist()const;
+   int getSize()const;
    bool operator == (Song const &rhs);
 };
 

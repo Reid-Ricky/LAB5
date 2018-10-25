@@ -42,17 +42,17 @@ Song::Song(string _title, string _artist, int _size) {
 }
 
 //TEST
-string Song::getTitle() {
+string Song::getTitle() const {
    return title;
 }
 
 //TEST
-string Song::getArtist() {
+string Song::getArtist() const {
    return artist;
 }
 
 //TEST
-int Song::getSize() {
+int Song::getSize() const {
    return size;
 }
 
