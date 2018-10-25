@@ -161,7 +161,13 @@ void UtPod::sortSongList() {
   
 //TEST
 int UtPod::getRemainingMemory() {
-   return (MAX_MEMORY - memSize);
+   SongNode *ptr = songs;
+   int curr_mem_used =0;
+   while(ptr != NULL){
+      curr_mem_used += ptr->s.getSize();
+      ptr = ptr->next;
+   }
+   return(memSize - curr_mem_used);
 }
 
 //TEST
