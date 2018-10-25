@@ -38,14 +38,14 @@ int UtPod::numSongs() {
 //TEST
 UtPod::UtPod() {
    songs = NULL;
-   memSize = 0;
+   memSize = MAX_MEMORY;
 }
 
 //TEST
 UtPod::UtPod(int size) {
    songs = NULL;
    if (size <= 0 || size > MAX_MEMORY) {
-      memSize = 0;
+      memSize = MAX_MEMORY;
    } else {
       memSize = size;
    }
@@ -53,21 +53,20 @@ UtPod::UtPod(int size) {
 
 //TEST
 int UtPod::addSong(Song const &s) {
-   if ((memSize + s.getSize()) > MAX_MEMORY) {
+   if ((getRemainingMemory() - s.getSize()) < NO_MEMORY) {
       return NO_MEMORY;
    } else {
       SongNode* newNode = new SongNode;
       newNode->s = s;
       newNode->next = songs;
       songs = newNode;
-      memSize = memSize + s.getSize();
       return SUCCESS;
    }
 }
 
 //TEST
 int UtPod::removeSong(Song const &s) {
-   if (memSize == NO_MEMORY) {
+   if (getRemainingMemory() == memSize) {
       return NO_MEMORY;
    } else {
       bool found = false;
@@ -75,7 +74,6 @@ int UtPod::removeSong(Song const &s) {
       SongNode* currentNode = songs;
       while (currentNode != NULL && !found) {
          if (currentNode->s == s) {
-            memSize = memSize - currentNode->s.getSize();
             SongNode* bufferNode = currentNode;
             if (currentNode != prevNode) {
                prevNode->next = currentNode->next;
@@ -120,8 +118,8 @@ void UtPod::shuffle() {
          run2 = true;
          index = 0;
          nodePointer = songs;
-         randLength1 = (rand() % numSongs());
-         randLength2 = (rand() % numSongs());
+         randLength1 = (rand() % numSongs()); //index of swapees
+         randLength2 = (rand() % numSongs()); //index of swapees
 
          while (run1 || run2) {
             if (index == randLength1 && run1) {
@@ -145,7 +143,7 @@ void UtPod::shuffle() {
 
 //TEST
 void UtPod::showSongList() {
-   if (memSize == NO_MEMORY) {
+   if (memSize == MAX_MEMORY) {
       cout << "\n";
    } else {
       SongNode* nodePointer = songs;
