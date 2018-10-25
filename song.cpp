@@ -17,8 +17,9 @@
  */
 
 
-#include "Golfer.h"
 #include "song.h"
+#include <cstdlib>
+#include <iostream>
 
 using namespace std;
 
@@ -41,20 +42,22 @@ Song::Song(string _title, string _artist, int _size) {
 }
 
 //TEST
-string getTitle() {
+string Song::getTitle() {
    return title;
 }
 
 //TEST
-string getArtist() {
+string Song::getArtist() {
    return artist;
 }
 
 //TEST
-int getSize() {
+int Song::getSize() {
    return size;
 }
 
-
+bool Song::operator ==(Song const &rhs) {
+   return (title == rhs.title && artist == rhs.artist && size == rhs.size);
+}
 
 
