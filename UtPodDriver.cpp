@@ -66,8 +66,15 @@ int main(int argc, char *argv[])
     cout << "result = " << result << endl;
     
     t.showSongList();
+    cout << "\n---------------------\n\n";
 
     cout << "memory = " << t.getRemainingMemory() << endl;
+
+    t.shuffle();
+    t.showSongList();
+    cout << "\n---------------------\n\n";
+    t.shuffle();
+    t.showSongList();
 
     cout << "\n---------------------\n\n";
 

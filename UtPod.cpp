@@ -131,6 +131,7 @@ void UtPod::shuffle() {
             ptr2 = nodePointer;
             run2 = false;
          }
+         index++;
          nodePointer = nodePointer->next;
       }
 
