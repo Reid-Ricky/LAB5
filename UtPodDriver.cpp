@@ -26,23 +26,25 @@ using namespace std;
 int main(int argc, char *argv[])
 {
     UtPod t;
-    cout << "HELLOOOOO";
-/*
-    Song s1("Beatles", "Hey Jude1", 4);
-    cout << s1.title;
-    cout << s1.artist;
-    cout << s1.size;
+    cout << "HELLOOOOO\n\n";
+
+    Song s1("Hey Jude1", "Beatles", 4);
+    cout << s1.getTitle() << "\n";
+    cout << s1.getArtist() << "\n";
+    cout << s1.getSize() << "\n";
     int result = t.addSong(s1);
     cout << "result = " << result << endl;
-    
     t.showSongList();
-          
-    Song s2("Beatles", "Hey Jude2", 5);
+
+    cout << "\n---------------------\n\n";
+
+    Song s2("Hey Jude2", "Beatles", 5);
     result = t.addSong(s2);
     cout << "result = " << result << endl;
-    
     t.showSongList();
-       
+
+    cout << "\n---------------------\n\n";
+
     Song s3("Beatles", "Hey Jude3", 6);
     result = t.addSong(s3);
     cout << "result = " << result << endl;
@@ -56,7 +58,7 @@ int main(int argc, char *argv[])
     cout << "add result = " << result << endl;
     
     t.showSongList();
-    
+    /*
     result = t.removeSong(s2);
     cout << "delete result = " << result << endl;
   

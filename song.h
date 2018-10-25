@@ -16,10 +16,8 @@
  *
  */
 
-
 #ifndef SONG_H
 #define SONG_H
-
 #include <string>
 
 using namespace std;
@@ -36,11 +34,10 @@ class Song {
    Song();
    Song(string _title, string _artist, int _size);
    
-   string getTitle()const;
-   string getArtist()const;
-   int getSize()const;
+   string getTitle() const;
+   string getArtist() const;
+   int getSize() const;
    bool operator == (Song const &rhs);
 };
-
 
 #endif

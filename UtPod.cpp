@@ -53,7 +53,6 @@ UtPod::UtPod(int size) {
 
 //TEST
 int UtPod::addSong(Song const &s) {
-
    if ((memSize + s.getSize()) > MAX_MEMORY) {
       return NO_MEMORY;
    } else {
@@ -64,8 +63,6 @@ int UtPod::addSong(Song const &s) {
       memSize = memSize + s.getSize();
       return SUCCESS;
    }
-
-
 }
 
 //TEST
@@ -145,7 +142,7 @@ void UtPod::showSongList() {
    } else {
       SongNode* nodePointer = songs;
       while (nodePointer != NULL) {
-         cout << nodePointer->s.getTitle() << " BY: " << nodePointer->s.getArtist() << "\n";
+         cout << nodePointer->s.getTitle() << " by " << nodePointer->s.getArtist() << "\n";
          nodePointer = nodePointer->next;
       }
    }

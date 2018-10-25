@@ -16,7 +16,6 @@
  *
  */
 
-
 #include "song.h"
 #include <cstdlib>
 #include <iostream>
@@ -57,7 +56,9 @@ int Song::getSize() const {
 }
 
 bool Song::operator ==(Song const &rhs) {
-   return (title == rhs.title && artist == rhs.artist && size == rhs.size);
+   return (title == rhs.title &&
+           artist == rhs.artist &&
+           size == rhs.size);
 }
 
 
