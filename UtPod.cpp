@@ -101,43 +101,45 @@ int UtPod::removeSong(Song const &s) {
 
 //TEST
 void UtPod::shuffle() {
-   unsigned int currentTime = (unsigned) time(0);
-   srand(currentTime);
-   SongNode *ptr1;
-   SongNode *ptr2;
-   SongNode *nodePointer;
-   Song temp;
+   if (numSongs() >= 2) {
+      unsigned int currentTime = (unsigned) time(0);
+      srand(currentTime);
+      SongNode *ptr1;
+      SongNode *ptr2;
+      SongNode *nodePointer;
+      Song temp;
 
-   //COMMENT HEREEEEEEEEEE
-   bool run1;
-   bool run2;
-   int randLength1 = 0;
-   int randLength2 = 0;
-   int index = 0;
-   for (int i = 0; i < 50; i++) {
-      run1 = true;
-      run2 = true;
-      index = 0;
-      nodePointer = songs;
-      randLength1 = (rand() % numSongs());
-      randLength2 = (rand() % numSongs());
-      
-      while (run1 || run2) {
-         if (index == randLength1 && run1) {
-            ptr1 = nodePointer;
-            run1 = false;
+      //COMMENT HEREEEEEEEEEE
+      bool run1;
+      bool run2;
+      int randLength1 = 0;
+      int randLength2 = 0;
+      int index = 0;
+      for (int i = 0; i < 50; i++) {
+         run1 = true;
+         run2 = true;
+         index = 0;
+         nodePointer = songs;
+         randLength1 = (rand() % numSongs());
+         randLength2 = (rand() % numSongs());
+
+         while (run1 || run2) {
+            if (index == randLength1 && run1) {
+               ptr1 = nodePointer;
+               run1 = false;
+            }
+            if (index == randLength2 && run2) {
+               ptr2 = nodePointer;
+               run2 = false;
+            }
+            index++;
+            nodePointer = nodePointer->next;
          }
-         if (index == randLength2 && run2) {
-            ptr2 = nodePointer;
-            run2 = false;
-         }
-         index++;
-         nodePointer = nodePointer->next;
+
+         temp = ptr1->s;
+         ptr1->s = ptr2->s;
+         ptr2->s = temp;
       }
-
-      temp = ptr1->s;
-      ptr1->s = ptr2->s;
-      ptr2->s = temp;
    }
 }
 
