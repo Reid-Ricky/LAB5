@@ -22,21 +22,24 @@
 
 using namespace std;
 
-//TEST
+//Default constructor
 Song::Song() {
    title = "";
    artist = "";
    size = 0;
 }
 
-//TEST
+//Constructor with title, artist, size parameters
+// The user of the class will pass in a title, artist, and size
+// If the variables passed in are valid, the variables will be initialized accordingly
+// If the variables are not valid, there will no initializations and an error message
 Song::Song(string _title, string _artist, int _size) {
    if (_title != "" && _artist != "" && _size > 0) {
       title = _title;
       artist = _artist;
       size = _size;
    } else {
-      cout << "error in constructor";
+      cout << "Error in constructor.";
    }
 }
 
@@ -44,11 +47,9 @@ Song::Song(string _title, string _artist, int _size) {
 string Song::getTitle() const {
    return title;
 }
-
 string Song::getArtist() const {
    return artist;
 }
-
 int Song::getSize() const {
    return size;
 }
@@ -57,22 +58,28 @@ int Song::getSize() const {
 void Song::setTitle(string _title) {
    title = _title;
 }
-
 void Song::setArtist(string _artist) {
    artist = _artist;
 }
-
 void Song::setSize(int _size) {
    size = _size;
 }
 
 //OPERATORS
+
+//Equality Operator
+// returns true if all variables (title, artist, size) are equal
+// returns false otherwise
 bool Song::operator ==(Song const &rhs) {
    return (title == rhs.title &&
            artist == rhs.artist &&
            size == rhs.size);
 }
 
+//Less Than Operator
+// returns true if the variables of this song are less than the variables
+//  of the rhs song in the order of artist, then title, then size
+// returns false otherwise
 bool Song::operator <(Song const &rhs){
    if (artist < rhs.getArtist()) {
       return true;
@@ -93,6 +100,10 @@ bool Song::operator <(Song const &rhs){
    }
 }
 
+//Greater Than Operator
+// returns true if the variables of this song are greater than the variables
+//  of the rhs song in the order of artist, then title, then size
+// returns false otherwise
 bool Song::operator >(Song const &rhs){
    if (artist > rhs.getArtist()) {
       return true;

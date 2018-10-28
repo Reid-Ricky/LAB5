@@ -26,24 +26,48 @@ using namespace std;
 class Song {
       
   private:
-   string title;
-   string artist;
-   int size;
+    string title;
+    string artist;
+    int size;
  
   public:
-   Song();
-   Song(string _title, string _artist, int _size);
-   
-   string getTitle() const;
-   string getArtist() const;
-   int getSize() const;
+    //Default constructor
+    Song();
 
-   void setTitle(string _title);
-   void setArtist(string _artist);
-   void setSize(int _size);
-   bool operator ==(Song const &rhs);
-   bool operator <(Song const &rhs);
-   bool operator >(Song const &rhs);
+    //Constructor with title, artist, size parameters
+    // The user of the class will pass in a title, artist, and size
+    // If the variables passed in are valid, the variables will be initialized accordingly
+    // If the variables are not valid, there will no initializations and an error message
+    Song(string _title, string _artist, int _size);
+
+    //GETTERS
+    string getTitle() const;
+    string getArtist() const;
+    int getSize() const;
+
+    //SETTERS
+    void setTitle(string _title);
+    void setArtist(string _artist);
+    void setSize(int _size);
+
+    //OPERATORS
+
+    //Equality Operator
+    // returns true if all variables (title, artist, size) are equal
+    // returns false otherwise
+    bool operator ==(Song const &rhs);
+
+    //Less Than Operator
+    // returns true if the variables of this song are less than the variables
+    //  of the rhs song in the order of artist, then title, then size
+    // returns false otherwise
+    bool operator <(Song const &rhs);
+
+    //Greater Than Operator
+    // returns true if the variables of this song are greater than the variables
+    //  of the rhs song in the order of artist, then title, then size
+    // returns false otherwise
+    bool operator >(Song const &rhs);
 };
 
 #endif
