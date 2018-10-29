@@ -175,7 +175,7 @@ void UtPod::showSongList() {
    } else {
       SongNode* nodePointer = songs;
       while (nodePointer != NULL) {
-         cout << nodePointer->s.getTitle() << " by " << nodePointer->s.getArtist() << "\n";
+         cout << '"' << nodePointer->s.getTitle() << '"' << " by " << nodePointer->s.getArtist() << "\n\n";
          nodePointer = nodePointer->next;
       }
    }
