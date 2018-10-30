@@ -74,7 +74,9 @@ int main(int argc, char *argv[])
     rickys.shuffle();
     rickys.showSongList();
     cout << "\n--------------------------------\n";
+    cout << "Terminating Rickys UtPod" << endl;
     rickys.~UtPod();
+    cout << "\n--------------------------------\n";
 
 //-----------------------------------------------------------------------------------------------------------------
 
@@ -86,30 +88,45 @@ int main(int argc, char *argv[])
     cout << "populating the UtPod with music ~~ " << endl;
     Song s7("Never Change", "NAV", 80);
     result = reids.addSong(s7);
+    cout << "result of adding " << s7.getTitle() << " : " << result << endl;
+    cout << "song added ~ memory left = " << reids.getRemainingMemory() << endl << endl;
     //
-    cout << "song added ~ memory left = " << reids.getRemainingMemory() << endl;
     Song s8("I Love It", "Kanye West & Lil Pump", 25);
     result = reids.addSong(s8);
-    cout << "song added ~ memory left = " << reids.getRemainingMemory() << endl;
+    cout << "result of adding " << s8.getTitle() << " : " << result << endl;
+    cout << "song added ~ memory left = " << reids.getRemainingMemory() << endl << endl;
     //
     Song s9("Hurt Feelings", "Mac Miller", 70);
     result = reids.addSong(s9);
-    cout << "song added ~ memory left = " << reids.getRemainingMemory() << endl;
+    cout << "result of adding " << s9.getTitle() << " : " << result << endl;
+    cout << "song added ~ memory left = " << reids.getRemainingMemory() << endl << endl;
     //
-    Song s10("Know Yourself", "Drake", 63);
+    Song s10("Know Yourself (extended dance remix)", "Drake", 63);
     result = reids.addSong(s10);
-    cout << "song added ~ memory left = " << reids.getRemainingMemory() << endl;
+    cout << "result of adding " << s10.getTitle() << " : " << result << endl;
+    cout << "song added ~ memory left = " << reids.getRemainingMemory() << endl << endl;
     //
     Song s11("GHOST", "Jaden Smith", 14);
     result = reids.addSong(s11);
-    cout << "song added ~ memory left = " << reids.getRemainingMemory() << endl;
+    cout << "result of adding " << s11.getTitle() << " : " << result << endl;
+    cout << "song added ~ memory left = " << reids.getRemainingMemory() << endl << endl;
     //
     Song s12("Cough Syrup", "Young the Giant", 80);
     result = reids.addSong(s12);
-    cout << "song added ~ memory left = " << reids.getRemainingMemory() << endl;
+    cout << "result of adding " << s12.getTitle() << " : " << result << endl;
+    cout << "song added ~ memory left = " << reids.getRemainingMemory() << endl << endl;
     //
+    Song s13("Know Yourself", "Drake", 15);
+    result = reids.addSong(s13);
+    cout << "result of adding " << s13.getTitle() << " : " << result << endl;
+    cout << "song added ~ memory left = " << reids.getRemainingMemory() << endl << endl;
+    //
+    Song s14("In My Feelings", "Drake", 15);
+    result = reids.addSong(s14);
+    cout << "result of adding " << s14.getTitle() << " : " << result << endl;
+    cout << "song added ~ memory left = " << reids.getRemainingMemory() << endl << endl;
     cout << "\n--------------------------------\n";
-    cout << "Ut Pod [rickys UtPod] " << endl;
+    cout << "Ut Pod [reids UtPod] " << endl;
     cout << "Songs stored in UtPod :\n\n";
     reids.showSongList();
     cout << "\n--------------------------------\n";
@@ -123,21 +140,15 @@ int main(int argc, char *argv[])
 
     cout << "Ut Pod [reids UtPod]  " << endl;
     cout << "Adding three new songs~~ " << endl<< endl;
-    Song s13("Feel So Close", "Calvin Harris", 43);
-    result = reids.addSong(s13);
-    cout << "song added ~ memory left = " << reids.getRemainingMemory() << endl;
-    Song s14("Sour Patch Kids", "Bryce Vine", 102);
-    result = reids.addSong(s14);
-    cout << "song added ~ memory left = " << reids.getRemainingMemory() << endl;
-    /*
-    Song s15("Yeah Right", "Vince Staples", 55);
+    Song s15("Feel So Close", "Calvin Harris", 43);
     result = reids.addSong(s15);
     cout << "song added ~ memory left = " << reids.getRemainingMemory() << endl;
-     */
+    Song s16("Sour Patch Kids", "Bryce Vine", 102);
+    result = reids.addSong(s16);
+    cout << "song added ~ memory left = " << reids.getRemainingMemory() << endl;
     cout << "Songs added : " << endl << endl;
-    cout << '"' << s13.getTitle() << '"' << " by " << s13.getArtist() << endl << endl;
-    cout << '"' << s14.getTitle() << '"' << " by " << s14.getArtist() << endl << endl;
-   // cout << '"' << s15.getTitle() << '"' << " by " << s15.getArtist() << endl;
+    cout << '"' << s15.getTitle() << '"' << " by " << s15.getArtist() << endl << endl;
+    cout << '"' << s16.getTitle() << '"' << " by " << s16.getArtist() << endl << endl;
 
 
     cout << "\n--------------------------------\n";
