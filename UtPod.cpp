@@ -67,7 +67,7 @@ int UtPod::numSongs() {
 // input parms - Song to be added
 // output parms - Error Code (0 or -1)
 int UtPod::addSong(Song const &s) {
-   if ((getRemainingMemory() - s.getSize()) < NO_MEMORY) {
+   if ((getRemainingMemory() - s.getSize()) <= NO_MEMORY) {
       return NO_MEMORY;
    } else {
       SongNode* newNode = new SongNode;

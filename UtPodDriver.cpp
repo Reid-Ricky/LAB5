@@ -27,28 +27,41 @@ int main(int argc, char *argv[])
 {
     UtPod rickys(256);
     cout << "Ut Pod [rickys UtPod]  " << endl;
-    cout << "memory capacity - " << rickys.getTotalMemory() << endl<< endl;
+    cout << "memory capacity - " << rickys.getTotalMemory() << endl << endl;
 
     cout << "populating the UtPod with music ~~ " << endl;
-    Song s1("Hey Jude", "Beatles", 4);
+    Song s1;
+    s1.setTitle("Hey Jude");
+    s1.setArtist("Beatles");
+    s1.setSize(4);
     int result = rickys.addSong(s1);
-    cout << "song added ~ memory left = " << rickys.getRemainingMemory() << endl;
+    cout << "result of adding " << s1.getTitle() << " : " << result << endl;
+    cout << "song added ~ memory left = " << rickys.getRemainingMemory() << endl << endl;
     Song s2("The Hills", "The Weeknd", 15);
     result = rickys.addSong(s2);
-    cout << "song added ~ memory left = " << rickys.getRemainingMemory() << endl;
+    cout << "result of adding " << s2.getTitle() << " : " << result << endl;
+    cout << "song added ~ memory left = " << rickys.getRemainingMemory() << endl << endl;
     Song s3("Red Roses", "Beatles", 64);
     result = rickys.addSong(s3);
-    cout << "song added ~ memory left = " << rickys.getRemainingMemory() << endl;
+    cout << "result of adding " << s3.getTitle() << " : " << result << endl;
+    cout << "song added ~ memory left = " << rickys.getRemainingMemory() << endl << endl;
     Song s4("RERUN", "Quavo ft. Travis Scott", 7);
     result = rickys.addSong(s4);
-    cout << "song added ~ memory left = " << rickys.getRemainingMemory() << endl;
+    cout << "result of adding " << s4.getTitle() << " : " << result << endl;
+    cout << "song added ~ memory left = " << rickys.getRemainingMemory() << endl << endl;
     Song s5("Mo Bamba", "Sheck Wes", 28);
     result = rickys.addSong(s5);
-    cout << "song added ~ memory left = " << rickys.getRemainingMemory() << endl;
-    Song s6("Texas Fight", "The University of Texas Longhorn Band", 68);
+    cout << "result of adding " << s5.getTitle() << " : " << result << endl;
+    cout << "song added ~ memory left = " << rickys.getRemainingMemory() << endl << endl;
+    Song s6("Texas Fight", "The University of Texas Longhorn Band", 138);
     result = rickys.addSong(s6);
-    cout << "song added ~ memory left = " << rickys.getRemainingMemory() << endl;
-    cout << "\n--------------------------------\n";
+    cout << "result of adding " << s6.getTitle() << " : " << result << endl;
+    cout << "song added ~ memory left = " << rickys.getRemainingMemory() << endl << endl;
+    Song sOVERFLOW("Purple Rain", "Prince", 1);
+    result = rickys.addSong(sOVERFLOW);
+    cout << "result of adding " << sOVERFLOW.getTitle() << " : " << result << endl;
+    cout << "song was not able to be added";
+    cout << "\n\n--------------------------------\n";
 
 
     cout << "Ut Pod [rickys UtPod] " << endl;
