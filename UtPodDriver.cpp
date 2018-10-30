@@ -177,18 +177,6 @@ int main(int argc, char *argv[])
     cout << "current list of songs: " << endl << endl;
     reids.showSongList();
     cout << "\n--------------------------------\n";
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+    cout << "Terminating Reids UtPod" << endl;
+    reids.~UtPod();
 }
