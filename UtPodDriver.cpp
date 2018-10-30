@@ -27,12 +27,13 @@ int main(int argc, char *argv[])
 {
     //Parameter Constructor
     UtPod rickys(256);
-    cout << "Ut Pod [rickys UtPod]  " << endl;
+    cout << "Ut Pod [rickys UtPod]  " << endl << endl;
     cout << "memory capacity - " << rickys.getTotalMemory() << endl << endl;
 
     cout << "Contents of ricky's UtPod: " << endl << endl;
     rickys.showSongList();
-
+    cout << "--------------------------------\n";
+    cout << "Ut Pod [rickys UtPod]  " << endl << endl;
     cout << "populating the UtPod with music ~~ " << endl;
     Song s1;
     s1.setTitle("Hey Jude");
@@ -68,7 +69,7 @@ int main(int argc, char *argv[])
     cout << "\n\n--------------------------------\n";
 
 
-    cout << "Ut Pod [rickys UtPod] " << endl;
+    cout << "Ut Pod [rickys UtPod] " << endl << endl;
     cout << "Songs stored in UtPod :\n\n";
     rickys.showSongList();
     cout << "\n--------------------------------\n";
@@ -79,7 +80,7 @@ int main(int argc, char *argv[])
     rickys.showSongList();
     cout << "\n--------------------------------\n";
     cout << "SHUFFLING SONGS AGAIN**\n" << endl;
-    cout << "Shuffled songs : ";
+    cout << "Shuffled songs : \n";
     rickys.shuffle();
     rickys.showSongList();
     cout << "\n--------------------------------\n";
@@ -91,7 +92,7 @@ int main(int argc, char *argv[])
 
     //Default Constructor
     UtPod reids;
-    cout << "Ut Pod [reids UtPod]  " << endl;
+    cout << "Ut Pod [reids UtPod]  " << endl << endl;
     cout << "memory capacity - " << reids.getTotalMemory() << endl << endl;
     //
     cout << "populating the UtPod with music ~~ " << endl;
@@ -135,11 +136,11 @@ int main(int argc, char *argv[])
     cout << "result of adding " << s14.getTitle() << " : " << result << endl;
     cout << "song added ~ memory left = " << reids.getRemainingMemory() << endl << endl;
     cout << "\n--------------------------------\n";
-    cout << "Ut Pod [reids UtPod] " << endl;
+    cout << "Ut Pod [reids UtPod] " << endl << endl;
     cout << "Songs stored in UtPod :\n\n";
     reids.showSongList();
     cout << "\n--------------------------------\n";
-    cout << "Ut Pod [reids UtPod]  " << endl;
+    cout << "Ut Pod [reids UtPod]  " << endl << endl;
     cout << "Sorting Songs~~" << endl;
     reids.sortSongList();
     cout << "Sorted Songs: " << endl << endl;
@@ -147,7 +148,7 @@ int main(int argc, char *argv[])
     cout << "\n--------------------------------\n";
 
 
-    cout << "Ut Pod [reids UtPod]  " << endl;
+    cout << "Ut Pod [reids UtPod]  " << endl << endl;
     cout << "Adding three new songs~~ " << endl<< endl;
     Song s15("Feel So Close", "Calvin Harris", 43);
     result = reids.addSong(s15);
@@ -156,12 +157,12 @@ int main(int argc, char *argv[])
     result = reids.addSong(s16);
     cout << "song added ~ memory left = " << reids.getRemainingMemory() << endl;
     cout << "Songs added : " << endl << endl;
-    cout << '"' << s15.getTitle() << '"' << " by " << s15.getArtist() << endl << endl;
+    cout << '"' << s15.getTitle() << '"' << " by " << s15.getArtist() << endl;
     cout << '"' << s16.getTitle() << '"' << " by " << s16.getArtist() << endl << endl;
 
 
     cout << "\n--------------------------------\n";
-    cout << "Ut Pod [reids UtPod]  " << endl;
+    cout << "Ut Pod [reids UtPod]  " << endl << endl;
     cout << "removing " << '"' << s7.getTitle() << '"' << " by " << s7.getArtist() <<   endl;
     reids.removeSong(s7);
     cout << "new list of songs: " << endl;
