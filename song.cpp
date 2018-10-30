@@ -81,12 +81,12 @@ bool Song::operator ==(Song const &rhs) {
 //  of the rhs song in the order of artist, then title, then size
 // returns false otherwise
 bool Song::operator <(Song const &rhs){
-   if (artist < rhs.getArtist()) {
+   if (artist < rhs.getArtist()) { //priority 1
       return true;
-   } else if (artist == rhs.getArtist()) {
+   } else if (artist == rhs.getArtist()) { //priority 2
       if (title < rhs.getTitle()) {
          return true;
-      } else if (title == rhs.getTitle()){
+      } else if (title == rhs.getTitle()){ //priority 3
          if (size < rhs.getSize()) {
             return true;
          } else {
@@ -105,12 +105,12 @@ bool Song::operator <(Song const &rhs){
 //  of the rhs song in the order of artist, then title, then size
 // returns false otherwise
 bool Song::operator >(Song const &rhs){
-   if (artist > rhs.getArtist()) {
+   if (artist > rhs.getArtist()) { //priority 1
       return true;
-   } else if (artist == rhs.getArtist()) {
+   } else if (artist == rhs.getArtist()) { //priority 2
       if (title > rhs.getTitle()) {
          return true;
-      } else if (title == rhs.getTitle()){
+      } else if (title == rhs.getTitle()){ //priority 3
          if (size > rhs.getSize()) {
             return true;
          } else {

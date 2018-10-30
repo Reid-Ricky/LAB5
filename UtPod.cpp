@@ -33,7 +33,7 @@ UtPod::UtPod() {
 
 //Constructor with size parameter
 // The user of the class will pass in a size.
-// If the size is greater than MAX_MEMORY or less than or equal to 0,
+// If the size is invalid (greater than MAX_MEMORY or less than or equal to 0),
 // set the size to MAX_MEMORY.
 UtPod::UtPod(int size) {
    songs = NULL;
@@ -67,6 +67,7 @@ int UtPod::numSongs() {
 // input parms - Song to be added
 // output parms - Error Code (0 or -1)
 int UtPod::addSong(Song const &s) {
+    //calculates the future memory and branches on validity
    if ((getRemainingMemory() - s.getSize()) <= NO_MEMORY) {
       return NO_MEMORY;
    } else {
@@ -86,19 +87,18 @@ int UtPod::addSong(Song const &s) {
 // input parms - Song to be removed
 // output parms -  Error Code (0 or -2)
 int UtPod::removeSong(Song const &s) {
-   if (getRemainingMemory() == memSize) {
+   if (getRemainingMemory() == memSize) { //no memory
       return NOT_FOUND;
    } else {
       bool found = false;
       SongNode* prevNode = songs;
       SongNode* currentNode = songs;
       while (currentNode != NULL && !found) {
-         if (currentNode->s == s) {
+         if (currentNode->s == s) { //song equality
             SongNode* bufferNode = currentNode;
             if (currentNode != prevNode) {
                prevNode->next = currentNode->next;
-            } else {
-               //VERY FIRST INSTANCE
+            } else { //VERY FIRST INSTANCE
                songs = currentNode->next;
             }
             delete bufferNode;
@@ -117,25 +117,28 @@ int UtPod::removeSong(Song const &s) {
 }
 
 //FUNCTION - shuffle
-// shuffles the songs into random order
+// shuffles the songs into random order by repeatedly swapping random songs
 // will do nothing if there are less than two songs in the current list
 // input parms - NONE
 // output parms - NONE
 void UtPod::shuffle() {
    if (numSongs() >= 2) {
+       //chooses random seed by referencing the time
       unsigned int currentTime = (unsigned) time(0);
       srand(currentTime);
       SongNode *ptr1 = NULL;
       SongNode *ptr2 = NULL;
       SongNode *nodePointer;
-      Song temp;
+      Song temp; //temporary song
 
-      //COMMENT HEREEEEEEEEEE
+      //booleans dependent on whether the song has been found from the indexes
       bool run1;
       bool run2;
+      //random integers representing the indexes of the swapees
       int randLength1 = 0;
       int randLength2 = 0;
-      int index = 0;
+      //index integer used to iterate through the linked list
+      int index;
       for (int i = 0; i < 50; i++) {
          run1 = true;
          run2 = true;
@@ -156,7 +159,7 @@ void UtPod::shuffle() {
             index++;
             nodePointer = nodePointer->next;
          }
-
+         //swapping sequence
          temp = ptr1->s;
          ptr1->s = ptr2->s;
          ptr2->s = temp;
@@ -170,7 +173,7 @@ void UtPod::shuffle() {
 // input parms - NONE
 // output parms - NONE
 void UtPod::showSongList() {
-   if (getRemainingMemory() == memSize) {
+   if (getRemainingMemory() == memSize) { //empty list
       cout << "\n";
    } else {
       SongNode* nodePointer = songs;
@@ -187,10 +190,10 @@ void UtPod::showSongList() {
 // input parms - NONE
 // output parms - NONE
 void UtPod::sortSongList() {
-   SongNode* nodePointer;
-   SongNode* nextPointer;
-   Song temp;
-   if (numSongs() >= 2) {
+   SongNode* nodePointer; //pointer to current song
+   SongNode* nextPointer; //pointer to the next song
+   Song temp; //temporary song
+   if (numSongs() >= 2) { //if more than just one song in UtPod
       for (int i = 0; i < numSongs(); i++) {
          nodePointer = songs;
          nextPointer = songs->next;
@@ -237,10 +240,10 @@ int UtPod::getRemainingMemory() {
    SongNode *ptr = songs;
    int curr_mem_used =0;
    while (ptr != NULL) {
-      curr_mem_used += ptr->s.getSize();
+      curr_mem_used = curr_mem_used + ptr->s.getSize();
       ptr = ptr->next;
    }
-   return (memSize - curr_mem_used);
+   return (memSize - curr_mem_used); //calculates the remaining memory
 }
 
 //Destructor
