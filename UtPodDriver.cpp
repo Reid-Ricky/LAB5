@@ -164,8 +164,16 @@ int main(int argc, char *argv[])
     cout << "\n--------------------------------\n";
     cout << "Ut Pod [reids UtPod]  " << endl << endl;
     cout << "removing " << '"' << s7.getTitle() << '"' << " by " << s7.getArtist() <<   endl;
-    reids.removeSong(s7);
+    result = reids.removeSong(s7);
+    cout << "result of removing " << s7.getTitle() << " : " << result << endl;
     cout << "new list of songs: " << endl;
+    reids.showSongList();
+    Song sUNAVAILABLE("Big Girls Don't Cry", "Fergie", 500);
+    cout << "removing " << '"' << sUNAVAILABLE.getTitle() << '"' << " by " << sUNAVAILABLE.getArtist() <<   endl;
+    result = reids.removeSong(sUNAVAILABLE);
+    cout << "result of removing " << sUNAVAILABLE.getTitle() << " : " << result << endl;
+    cout << "song did not exist, so there is no change to reids UtPod" << endl;
+    cout << "new list of songs: " << endl << endl;
     reids.showSongList();
     cout << "\n--------------------------------\n";
 
