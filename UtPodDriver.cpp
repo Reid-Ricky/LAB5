@@ -169,6 +169,9 @@ int main(int argc, char *argv[])
     cout << "current list of songs: " << endl;
     reids.showSongList();
     cout << "\n--------------------------------\n";
+
+
+    cout << "Ut Pod [reids UtPod]  " << endl << endl;
     Song sUNAVAILABLE("Big Girls Don't Cry", "Fergie", 500);
     cout << "removing " << '"' << sUNAVAILABLE.getTitle() << '"' << " by " << sUNAVAILABLE.getArtist() <<   endl;
     result = reids.removeSong(sUNAVAILABLE);
@@ -178,5 +181,6 @@ int main(int argc, char *argv[])
     reids.showSongList();
     cout << "\n--------------------------------\n";
     cout << "Terminating Reids UtPod" << endl;
+    cout << "\n--------------------------------\n";
     reids.~UtPod();
 }
