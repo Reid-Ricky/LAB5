@@ -25,9 +25,13 @@ using namespace std;
 
 int main(int argc, char *argv[])
 {
+    //Parameter Constructor
     UtPod rickys(256);
     cout << "Ut Pod [rickys UtPod]  " << endl;
     cout << "memory capacity - " << rickys.getTotalMemory() << endl << endl;
+
+    cout << "Contents of ricky's UtPod: " << endl << endl;
+    rickys.showSongList();
 
     cout << "populating the UtPod with music ~~ " << endl;
     Song s1;
@@ -74,13 +78,18 @@ int main(int argc, char *argv[])
     rickys.shuffle();
     rickys.showSongList();
     cout << "\n--------------------------------\n";
+    cout << "SHUFFLING SONGS AGAIN**\n" << endl;
+    cout << "Shuffled songs : ";
+    rickys.shuffle();
+    rickys.showSongList();
+    cout << "\n--------------------------------\n";
     cout << "Terminating Rickys UtPod" << endl;
     rickys.~UtPod();
     cout << "\n--------------------------------\n";
 
 //-----------------------------------------------------------------------------------------------------------------
 
-
+    //Default Constructor
     UtPod reids;
     cout << "Ut Pod [reids UtPod]  " << endl;
     cout << "memory capacity - " << reids.getTotalMemory() << endl << endl;
